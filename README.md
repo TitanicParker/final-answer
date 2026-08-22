@@ -61,20 +61,22 @@ The central proposition is therefore this:
 
 ## Reading order
 
-1. [The case in one page](judge.md) — the architecture stated to a court.
-2. [The case between lawyers](lawyer.md) — the proof structure, causation and necessary limits.
-3. [The anatomy of the Protest](Protest.md) — what the patient says he challenged and why the “bald tyres” analogy mattered.
-4. [The anatomy of the omission](Omission.md) — the decision point concealed and the future record commissioned.
-5. [A model of systems failure](Model-of-failure.md) — the clinical course from selective intake to inherited closure.
-6. [How the record lived on](Model-of-failure-continuation.md) — the post-clinical course from complaint handling to recursive governance validation.
-7. [The spoken record](voice.md) — what the notes establish, what the patient recalls and why source classification matters.
-8. [The conversation that could have happened](the-chat) — a clearly identified counterfactual used to expose the missing restorative opportunity.
-9. [Three days in March](crisis) — the 10–14 March crisis and the meaning of profound relief.
-10. [The formal complaint of 19 March 2025](March-19th.md) — notice before full discovery.
-11. [Making 2017 present](gdpr.md) — how access, rectification and restriction became tools for reopening a closed clinical past.
-12. [Analytical method](Analytical-Method.md) — the four evidential levels, documentary genealogy and the limits of cross-document analysis.
+1. [The simple shape of the case](The-Simple-Shape-of-the-Case.md) — the complete case in deliberately plain language.
+2. [The case in one page](judge.md) — the architecture stated to a court.
+3. [The case between lawyers](lawyer.md) — the proof structure, causation and necessary limits.
+4. [The anatomy of the Protest](Protest.md) — what the patient says he challenged and why the “bald tyres” analogy mattered.
+5. [The anatomy of the omission](Omission.md) — the decision point concealed and the future record commissioned.
+6. [A model of systems failure](Model-of-failure.md) — the clinical course from selective intake to inherited closure.
+7. [How the record lived on](Model-of-failure-continuation.md) — the post-clinical course from complaint handling to recursive governance validation.
+8. [The spoken record](voice.md) — what the notes establish, what the patient recalls and why source classification matters.
+9. [The conversation that could have happened](the-chat) — a clearly identified counterfactual used to expose the missing restorative opportunity.
+10. [Three days in March](crisis) — the 10–14 March crisis and the meaning of profound relief.
+11. [The formal complaint of 19 March 2025](March-19th.md) — notice before full discovery.
+12. [Making 2017 present](gdpr.md) — how access, rectification and restriction became tools for reopening a closed clinical past.
+13. [Watching the story continue](Analytical-Method.md) — the institutional account and the patient’s developing knowledge traced side by side after March 2025.
+14. [Advisory brief for a solicitor](Solicitor_Advisory_Brief_Liam_Moloney.md) — the working legal handover on breach, causation, limitation, evidence and immediate next steps.
 
-The repository also contains a solicitor advisory brief. It is a professional working document rather than a public-facing essay and is intentionally excluded from the reading-room sequence.
+The GitHub Pages reading room now exposes every public content file in this repository. The solicitor brief retains its confidential-draft label, but it is publicly accessible here and in the accordion.
 
 ## Governing evidential limits
 
