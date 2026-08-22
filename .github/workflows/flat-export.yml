@@ -4,6 +4,9 @@ on:
   push:
     branches:
       - flat-export
+  pull_request:
+    branches:
+      - main
 
 jobs:
   package:
