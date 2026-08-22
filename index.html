@@ -1,0 +1,586 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#f3efe7">
+  <meta name="description" content="The Record and the Choice Not Made — an evidential case architecture in essays.">
+  <title>The Record and the Choice Not Made</title>
+  <style>
+    :root {
+      color-scheme: light;
+      --paper: #f3efe7;
+      --paper-deep: #e7dfd2;
+      --sheet: rgba(255, 253, 248, .88);
+      --ink: #292825;
+      --muted: #716d65;
+      --line: rgba(50, 47, 42, .14);
+      --accent: #7f5b53;
+      --accent-soft: #eadbd5;
+      --sage: #607169;
+      --sage-soft: #dce5df;
+      --shadow: 0 24px 70px rgba(62, 53, 44, .11);
+      --reader-size: 19px;
+      --measure: 690px;
+      --ease: cubic-bezier(.22, .8, .28, 1);
+    }
+
+    html[data-theme="night"] {
+      color-scheme: dark;
+      --paper: #1d1d1b;
+      --paper-deep: #252421;
+      --sheet: rgba(39, 38, 35, .92);
+      --ink: #eee9df;
+      --muted: #b7afa4;
+      --line: rgba(242, 235, 223, .12);
+      --accent: #d5a79b;
+      --accent-soft: #493832;
+      --sage: #a9c0b5;
+      --sage-soft: #30423a;
+      --shadow: 0 24px 70px rgba(0, 0, 0, .28);
+    }
+
+    * { box-sizing: border-box; }
+    html, body { height: 100%; }
+    html { background: var(--paper); scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      overflow: hidden;
+      color: var(--ink);
+      background:
+        radial-gradient(circle at 15% 8%, var(--sage-soft), transparent 28rem),
+        radial-gradient(circle at 88% 92%, var(--accent-soft), transparent 34rem),
+        var(--paper);
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    button, input { font: inherit; }
+    button { color: inherit; }
+    a { color: var(--accent); text-underline-offset: .18em; }
+    .app { height: 100%; display: grid; grid-template-columns: 340px minmax(0, 1fr); }
+
+    .library {
+      position: relative;
+      z-index: 20;
+      min-width: 0;
+      height: 100%;
+      overflow: auto;
+      padding: max(28px, env(safe-area-inset-top)) 22px max(28px, env(safe-area-inset-bottom));
+      border-right: 1px solid var(--line);
+      background: color-mix(in srgb, var(--paper) 86%, transparent);
+      backdrop-filter: blur(24px) saturate(115%);
+    }
+
+    .brand { padding: 4px 8px 24px; }
+    .eyebrow {
+      margin: 0 0 10px;
+      color: var(--accent);
+      font-size: 11px;
+      font-weight: 760;
+      letter-spacing: .16em;
+      text-transform: uppercase;
+    }
+    .brand h1 {
+      max-width: 270px;
+      margin: 0;
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: clamp(27px, 2.3vw, 35px);
+      font-weight: 500;
+      line-height: 1.04;
+      letter-spacing: -.025em;
+    }
+    .brand p { margin: 14px 0 0; color: var(--muted); font-size: 13px; line-height: 1.55; }
+
+    .search-wrap { position: relative; margin: 0 8px 18px; }
+    .search-wrap svg { position: absolute; left: 13px; top: 50%; transform: translateY(-50%); opacity: .55; }
+    #search {
+      width: 100%;
+      height: 42px;
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      padding: 0 12px 0 39px;
+      color: var(--ink);
+      background: var(--sheet);
+      outline: none;
+    }
+    #search:focus { border-color: var(--accent); box-shadow: 0 0 0 3px var(--accent-soft); }
+
+    .essay-groups details { border-top: 1px solid var(--line); }
+    .essay-groups details:last-child { border-bottom: 1px solid var(--line); }
+    .essay-groups summary {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      min-height: 52px;
+      padding: 0 8px;
+      cursor: pointer;
+      list-style: none;
+      color: var(--muted);
+      font-size: 11px;
+      font-weight: 780;
+      letter-spacing: .11em;
+      text-transform: uppercase;
+    }
+    .essay-groups summary::-webkit-details-marker { display: none; }
+    .essay-groups summary::after { content: "+"; font-size: 18px; font-weight: 400; transition: transform .25s var(--ease); }
+    .essay-groups details[open] summary::after { transform: rotate(45deg); }
+    .essay-list { display: grid; gap: 5px; padding: 0 0 12px; }
+    .essay-link {
+      width: 100%;
+      border: 0;
+      border-radius: 14px;
+      padding: 12px 13px;
+      text-align: left;
+      cursor: pointer;
+      background: transparent;
+      transition: background .2s, transform .2s;
+    }
+    .essay-link:hover { background: var(--sheet); transform: translateX(2px); }
+    .essay-link[aria-current="page"] { background: var(--sheet); box-shadow: inset 3px 0 var(--accent); }
+    .essay-link strong { display: block; font-family: Georgia, "Times New Roman", serif; font-size: 16px; font-weight: 500; line-height: 1.22; }
+    .essay-link span { display: block; margin-top: 6px; color: var(--muted); font-size: 11px; line-height: 1.4; }
+    .empty { display: none; padding: 28px 8px; color: var(--muted); font-size: 13px; }
+
+    .stage { position: relative; min-width: 0; height: 100%; overflow: hidden; }
+    .topbar {
+      position: absolute;
+      inset: 0 0 auto 0;
+      z-index: 10;
+      height: calc(62px + env(safe-area-inset-top));
+      padding: env(safe-area-inset-top) max(18px, env(safe-area-inset-right)) 0 max(18px, env(safe-area-inset-left));
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-bottom: 1px solid var(--line);
+      background: color-mix(in srgb, var(--paper) 78%, transparent);
+      backdrop-filter: blur(20px);
+    }
+    .top-left, .top-actions { display: flex; align-items: center; gap: 8px; }
+    .menu-button { display: none; }
+    .icon-button {
+      display: inline-grid;
+      place-items: center;
+      width: 38px;
+      height: 38px;
+      border: 1px solid var(--line);
+      border-radius: 50%;
+      background: var(--sheet);
+      cursor: pointer;
+      transition: transform .2s, border-color .2s;
+    }
+    .icon-button:hover { transform: translateY(-1px); border-color: var(--accent); }
+    .position { color: var(--muted); font-size: 12px; font-variant-numeric: tabular-nums; }
+    .font-control {
+      height: 38px;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      padding: 0 12px;
+      background: var(--sheet);
+      cursor: pointer;
+      font-family: Georgia, serif;
+    }
+
+    .progress { position: absolute; z-index: 11; top: calc(62px + env(safe-area-inset-top)); left: 0; right: 0; height: 2px; background: transparent; }
+    .progress span { display: block; width: 0; height: 100%; background: var(--accent); transition: width .08s linear; }
+
+    .reader {
+      height: 100%;
+      overflow: auto;
+      overscroll-behavior: contain;
+      scrollbar-gutter: stable;
+      padding: calc(62px + env(safe-area-inset-top)) max(28px, env(safe-area-inset-right)) max(110px, env(safe-area-inset-bottom)) max(28px, env(safe-area-inset-left));
+      touch-action: pan-y;
+    }
+    .sheet {
+      width: min(100%, 920px);
+      min-height: calc(100vh - 120px);
+      margin: 38px auto 0;
+      padding: clamp(40px, 7vw, 88px) clamp(24px, 8vw, 100px) 70px;
+      border: 1px solid var(--line);
+      border-radius: 30px;
+      background: var(--sheet);
+      box-shadow: var(--shadow);
+      transform-origin: 50% 25%;
+    }
+    .sheet.animate-next { animation: nextEssay .48s var(--ease); }
+    .sheet.animate-prev { animation: prevEssay .48s var(--ease); }
+    @keyframes nextEssay { from { opacity: 0; transform: translateX(42px) scale(.985); } to { opacity: 1; transform: none; } }
+    @keyframes prevEssay { from { opacity: 0; transform: translateX(-42px) scale(.985); } to { opacity: 1; transform: none; } }
+
+    .article-kicker { margin-bottom: 18px; color: var(--sage); font-size: 11px; font-weight: 780; letter-spacing: .14em; text-transform: uppercase; }
+    .article-title {
+      max-width: 760px;
+      margin: 0;
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: clamp(38px, 6vw, 69px);
+      font-weight: 500;
+      line-height: .99;
+      letter-spacing: -.04em;
+    }
+    .article-deck { max-width: 650px; margin: 24px 0 0; color: var(--muted); font-family: Georgia, serif; font-size: 18px; line-height: 1.55; }
+    .article-meta { display: flex; gap: 14px; margin: 25px 0 52px; color: var(--muted); font-size: 11px; letter-spacing: .06em; text-transform: uppercase; }
+
+    .prose {
+      max-width: var(--measure);
+      margin: 0 auto;
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: var(--reader-size);
+      line-height: 1.78;
+      letter-spacing: .002em;
+      text-wrap: pretty;
+    }
+    .prose h1 { display: none; }
+    .prose h2, .prose h3 { scroll-margin-top: 90px; color: var(--ink); line-height: 1.15; letter-spacing: -.02em; }
+    .prose h2 { margin: 2.8em 0 .8em; font-size: 1.62em; font-weight: 500; }
+    .prose h3 { margin: 2.2em 0 .7em; font-size: 1.22em; font-weight: 600; }
+    .prose p { margin: 0 0 1.35em; }
+    .prose > p:first-of-type::first-letter { float: left; margin: .05em .12em 0 0; color: var(--accent); font-size: 3.4em; line-height: .82; }
+    .prose strong { font-weight: 700; }
+    .prose blockquote {
+      margin: 2.2em -4vw;
+      padding: .35em 0 .35em 4vw;
+      border-left: 3px solid var(--accent);
+      color: color-mix(in srgb, var(--ink) 86%, var(--accent));
+      font-size: 1.13em;
+      line-height: 1.62;
+    }
+    .prose blockquote p:last-child { margin-bottom: 0; }
+    .prose ul, .prose ol { margin: 0 0 1.6em; padding-left: 1.25em; }
+    .prose li { margin: .45em 0; padding-left: .25em; }
+    .prose hr { width: 80px; margin: 3.2em auto; border: 0; border-top: 1px solid var(--accent); }
+    .prose code { padding: .12em .35em; border-radius: .35em; background: var(--paper-deep); font-family: ui-monospace, monospace; font-size: .86em; }
+
+    .essay-footer {
+      max-width: var(--measure);
+      margin: 70px auto 0;
+      padding-top: 25px;
+      border-top: 1px solid var(--line);
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px;
+    }
+    .nav-card {
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      padding: 16px;
+      text-align: left;
+      background: transparent;
+      cursor: pointer;
+    }
+    .nav-card:last-child { text-align: right; }
+    .nav-card small { display: block; margin-bottom: 6px; color: var(--muted); text-transform: uppercase; letter-spacing: .1em; }
+    .nav-card strong { font-family: Georgia, serif; font-size: 16px; font-weight: 500; }
+    .nav-card:disabled { opacity: .3; cursor: default; }
+
+    .scrim { display: none; }
+    .loading { padding: 50px 0; color: var(--muted); text-align: center; font-family: ui-sans-serif, system-ui; }
+
+    @media (max-width: 860px) {
+      .app { display: block; }
+      .library {
+        position: fixed;
+        inset: 0 auto 0 0;
+        width: min(88vw, 370px);
+        transform: translateX(-105%);
+        transition: transform .36s var(--ease);
+        box-shadow: 20px 0 70px rgba(31, 28, 24, .22);
+      }
+      body.menu-open .library { transform: translateX(0); }
+      .scrim { position: fixed; z-index: 15; inset: 0; display: block; visibility: hidden; opacity: 0; border: 0; background: rgba(25, 23, 20, .36); transition: opacity .3s, visibility .3s; }
+      body.menu-open .scrim { visibility: visible; opacity: 1; }
+      .menu-button { display: inline-grid; }
+      .reader { padding-left: max(12px, env(safe-area-inset-left)); padding-right: max(12px, env(safe-area-inset-right)); }
+      .sheet { margin-top: 12px; border-radius: 24px; }
+      .article-title { font-size: clamp(38px, 12vw, 59px); }
+      .prose blockquote { margin-left: 0; margin-right: 0; padding-left: 1.1em; }
+    }
+
+    @media (max-width: 560px) {
+      .topbar { height: calc(58px + env(safe-area-inset-top)); }
+      .progress { top: calc(58px + env(safe-area-inset-top)); }
+      .reader { padding-top: calc(58px + env(safe-area-inset-top)); padding-bottom: calc(82px + env(safe-area-inset-bottom)); }
+      .sheet { min-height: calc(100vh - 70px); margin-top: 0; padding: 38px 20px 48px; border: 0; border-radius: 0; box-shadow: none; background: color-mix(in srgb, var(--sheet) 78%, transparent); }
+      .article-meta { margin-bottom: 40px; }
+      .article-deck { font-size: 16px; }
+      .essay-footer { grid-template-columns: 1fr; }
+      .nav-card:last-child { text-align: left; }
+      .font-control { display: none; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after { scroll-behavior: auto !important; animation-duration: .01ms !important; transition-duration: .01ms !important; }
+    }
+  </style>
+</head>
+<body>
+  <div class="app">
+    <aside class="library" id="library" aria-label="Essay library">
+      <header class="brand">
+        <p class="eyebrow">Evidential essays</p>
+        <h1>The Record and the Choice Not Made</h1>
+        <p>A reading room for the hinge, the omission, the dependent record and the life lived beneath it.</p>
+      </header>
+      <div class="search-wrap">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="11" cy="11" r="7" stroke="currentColor" stroke-width="1.7"/><path d="m16.2 16.2 4 4" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></svg>
+        <input id="search" type="search" placeholder="Find an essay" aria-label="Find an essay">
+      </div>
+      <nav class="essay-groups" id="essay-groups"></nav>
+      <p class="empty" id="empty">No essay matches that search.</p>
+    </aside>
+
+    <button class="scrim" id="scrim" aria-label="Close contents"></button>
+
+    <main class="stage">
+      <header class="topbar">
+        <div class="top-left">
+          <button class="icon-button menu-button" id="menu-button" aria-label="Open contents" aria-expanded="false">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></svg>
+          </button>
+          <button class="icon-button" id="prev-top" aria-label="Previous essay">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="m15 18-6-6 6-6" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </button>
+          <button class="icon-button" id="next-top" aria-label="Next essay">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="m9 18 6-6-6-6" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </button>
+          <span class="position" id="position">1 / 10</span>
+        </div>
+        <div class="top-actions">
+          <button class="font-control" id="font-control" aria-label="Change reading text size">Aa</button>
+          <button class="icon-button" id="theme-button" aria-label="Toggle night reading mode">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M20 15.2A8.3 8.3 0 0 1 8.8 4a8.4 8.4 0 1 0 11.2 11.2Z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></svg>
+          </button>
+        </div>
+      </header>
+
+      <div class="progress" aria-hidden="true"><span id="progress"></span></div>
+
+      <div class="reader" id="reader" tabindex="-1">
+        <article class="sheet" id="sheet">
+          <header>
+            <p class="article-kicker" id="article-kicker"></p>
+            <h2 class="article-title" id="article-title"></h2>
+            <p class="article-deck" id="article-deck"></p>
+            <div class="article-meta"><span id="read-time"></span><span>Evidence-disciplined analysis</span></div>
+          </header>
+          <div class="prose" id="prose"><p class="loading">Opening the reading room…</p></div>
+          <footer class="essay-footer">
+            <button class="nav-card" id="prev-card"><small>Previous</small><strong></strong></button>
+            <button class="nav-card" id="next-card"><small>Next</small><strong></strong></button>
+          </footer>
+        </article>
+      </div>
+    </main>
+  </div>
+
+  <script>
+    const essays = [
+      { slug: 'architecture', file: 'README.md', group: 'Begin here', title: 'The case architecture', deck: 'The unified presentation, the hinge, the dependent record and the governing evidential limits.', words: 1650 },
+      { slug: 'judge', file: 'judge.md', group: 'Begin here', title: 'The case in one page', deck: 'How the architecture would be stated carefully to a court.', words: 795 },
+      { slug: 'lawyer', file: 'lawyer.md', group: 'Begin here', title: 'The case between lawyers', deck: 'The proof structure, causation and the limits which make the formulation sustainable.', words: 824 },
+      { slug: 'protest', file: 'Protest.md', group: 'The hinge', title: 'The anatomy of the Protest', deck: 'What the patient says he challenged, why the NCT analogy mattered, and what remained clinically stationary.', words: 2292 },
+      { slug: 'omission', file: 'Omission.md', group: 'The hinge', title: 'The anatomy of the omission', deck: 'How an absent challenge may have concealed a decision point and commissioned the future record.', words: 2741 },
+      { slug: 'system', file: 'Model-of-failure.md', group: 'The dependent future', title: 'A model of systems failure', deck: 'The path from selective intake and senior restraint to recursive institutional closure.', words: 1633 },
+      { slug: 'voice', file: 'voice.md', group: 'The lived record', title: 'The spoken record', deck: 'What the documents establish, what the patient recalls, and why source classification matters.', words: 1112 },
+      { slug: 'conversation', file: 'the-chat', group: 'The lived record', title: 'The conversation that could have happened', deck: 'A counterfactual reconstruction of the restorative conversation the disclosed record does not show.', words: 1193 },
+      { slug: 'crisis', file: 'crisis', group: 'The lived record', title: 'Three days in March', deck: 'The interval between prescription, existential crisis and profound relief.', words: 1200 },
+      { slug: 'complaint', file: 'March-19th.md', group: 'Institutional response', title: 'The formal complaint of 19 March 2025', deck: 'What the hospital was put on notice of before the patient possessed the full documentary case.', words: 1486 }
+    ];
+
+    const state = { index: 0, fontStep: 1, touchX: 0, touchY: 0, loadingToken: 0 };
+    const groupsEl = document.querySelector('#essay-groups');
+    const reader = document.querySelector('#reader');
+    const sheet = document.querySelector('#sheet');
+    const prose = document.querySelector('#prose');
+    const menuButton = document.querySelector('#menu-button');
+
+    function escapeHtml(value) {
+      return value.replace(/[&<>"']/g, char => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#039;'}[char]));
+    }
+
+    function inlineMarkdown(value) {
+      let text = escapeHtml(value);
+      text = text.replace(/`([^`]+)`/g, '<code>$1</code>');
+      text = text.replace(/\[([^\]]+)\]\(([^)]+)\)/g, '<a href="$2">$1</a>');
+      text = text.replace(/\*\*([^*]+)\*\*/g, '<strong>$1</strong>');
+      text = text.replace(/__([^_]+)__/g, '<strong>$1</strong>');
+      text = text.replace(/(^|\s)\*([^*]+)\*(?=\s|[.,;:!?]|$)/g, '$1<em>$2</em>');
+      return text;
+    }
+
+    function renderMarkdown(markdown) {
+      const lines = markdown.replace(/\r/g, '').split('\n');
+      let html = '', paragraph = [], quote = [], listType = '', listItems = [];
+      const flushParagraph = () => { if (paragraph.length) { html += `<p>${inlineMarkdown(paragraph.join(' '))}</p>`; paragraph = []; } };
+      const flushQuote = () => { if (quote.length) { html += `<blockquote><p>${inlineMarkdown(quote.join(' '))}</p></blockquote>`; quote = []; } };
+      const flushList = () => { if (listItems.length) { html += `<${listType}>${listItems.map(x => `<li>${inlineMarkdown(x)}</li>`).join('')}</${listType}>`; listItems = []; listType = ''; } };
+      const flush = () => { flushParagraph(); flushQuote(); flushList(); };
+
+      for (const raw of lines) {
+        const line = raw.trim();
+        if (!line) { flush(); continue; }
+        const heading = line.match(/^(#{1,3})\s+(.+)$/);
+        if (heading) { flush(); const level = heading[1].length; html += `<h${level}>${inlineMarkdown(heading[2])}</h${level}>`; continue; }
+        if (/^(-{3,}|\*{3,})$/.test(line)) { flush(); html += '<hr>'; continue; }
+        if (line.startsWith('>')) { flushParagraph(); flushList(); quote.push(line.replace(/^>\s?/, '')); continue; }
+        const unordered = line.match(/^[-*+]\s+(.+)$/);
+        const ordered = line.match(/^\d+[.)]\s+(.+)$/);
+        if (unordered || ordered) {
+          flushParagraph(); flushQuote();
+          const nextType = unordered ? 'ul' : 'ol';
+          if (listType && listType !== nextType) flushList();
+          listType = nextType;
+          listItems.push((unordered || ordered)[1]);
+          continue;
+        }
+        flushQuote(); flushList(); paragraph.push(line);
+      }
+      flush();
+      return html;
+    }
+
+    function buildMenu() {
+      const grouped = essays.reduce((map, essay) => ((map[essay.group] ||= []).push(essay), map), {});
+      groupsEl.innerHTML = Object.entries(grouped).map(([group, items], groupIndex) => `
+        <details ${groupIndex === 0 ? 'open' : ''}>
+          <summary>${group}</summary>
+          <div class="essay-list">
+            ${items.map(essay => {
+              const index = essays.indexOf(essay);
+              return `<button class="essay-link" data-index="${index}" data-search="${(essay.title + ' ' + essay.deck).toLowerCase()}">
+                <strong>${essay.title}</strong><span>${Math.max(1, Math.round(essay.words / 210))} min · ${essay.deck}</span>
+              </button>`;
+            }).join('')}
+          </div>
+        </details>`).join('');
+      groupsEl.querySelectorAll('.essay-link').forEach(button => button.addEventListener('click', () => openEssay(Number(button.dataset.index))));
+    }
+
+    function closeMenu() {
+      document.body.classList.remove('menu-open');
+      menuButton.setAttribute('aria-expanded', 'false');
+    }
+
+    function updateNav() {
+      const essay = essays[state.index];
+      document.querySelector('#position').textContent = `${state.index + 1} / ${essays.length}`;
+      document.querySelector('#prev-top').disabled = state.index === 0;
+      document.querySelector('#next-top').disabled = state.index === essays.length - 1;
+      const prev = essays[state.index - 1], next = essays[state.index + 1];
+      const prevCard = document.querySelector('#prev-card'), nextCard = document.querySelector('#next-card');
+      prevCard.disabled = !prev; prevCard.querySelector('strong').textContent = prev?.title || 'Beginning';
+      nextCard.disabled = !next; nextCard.querySelector('strong').textContent = next?.title || 'End';
+      groupsEl.querySelectorAll('.essay-link').forEach((button, index) => {
+        if (index === state.index) button.setAttribute('aria-current', 'page'); else button.removeAttribute('aria-current');
+      });
+      document.title = `${essay.title} — The Record and the Choice Not Made`;
+    }
+
+    async function openEssay(index, direction) {
+      if (index < 0 || index >= essays.length) return;
+      const previous = state.index;
+      state.index = index;
+      const essay = essays[index];
+      const token = ++state.loadingToken;
+      closeMenu(); updateNav();
+      history.replaceState(null, '', `#${essay.slug}`);
+      document.querySelector('#article-kicker').textContent = essay.group;
+      document.querySelector('#article-title').textContent = essay.title;
+      document.querySelector('#article-deck').textContent = essay.deck;
+      document.querySelector('#read-time').textContent = `${Math.max(1, Math.round(essay.words / 210))} minute read`;
+      prose.innerHTML = '<p class="loading">Loading essay…</p>';
+      reader.scrollTo({ top: 0, behavior: 'instant' });
+      sheet.classList.remove('animate-next', 'animate-prev');
+      void sheet.offsetWidth;
+      sheet.classList.add(direction || (index >= previous ? 'animate-next' : 'animate-prev'));
+      try {
+        const response = await fetch(essay.file, { cache: 'no-cache' });
+        if (!response.ok) throw new Error(`HTTP ${response.status}`);
+        const markdown = await response.text();
+        if (token !== state.loadingToken) return;
+        prose.innerHTML = renderMarkdown(markdown);
+        document.querySelector('#read-time').textContent = `${Math.max(1, Math.round(markdown.trim().split(/\s+/).length / 210))} minute read`;
+        prose.querySelectorAll('a').forEach(link => {
+          const target = essays.findIndex(item => item.file === link.getAttribute('href'));
+          if (target >= 0) link.addEventListener('click', event => { event.preventDefault(); openEssay(target); });
+          else { link.target = '_blank'; link.rel = 'noopener noreferrer'; }
+        });
+      } catch (error) {
+        prose.innerHTML = `<p class="loading">This essay could not be loaded. <a href="${essay.file}">Open the source file</a>.</p>`;
+      }
+      reader.focus({ preventScroll: true });
+    }
+
+    function step(delta) { openEssay(state.index + delta, delta > 0 ? 'animate-next' : 'animate-prev'); }
+
+    buildMenu();
+    document.querySelector('#prev-top').addEventListener('click', () => step(-1));
+    document.querySelector('#next-top').addEventListener('click', () => step(1));
+    document.querySelector('#prev-card').addEventListener('click', () => step(-1));
+    document.querySelector('#next-card').addEventListener('click', () => step(1));
+    menuButton.addEventListener('click', () => {
+      const open = document.body.classList.toggle('menu-open');
+      menuButton.setAttribute('aria-expanded', String(open));
+    });
+    document.querySelector('#scrim').addEventListener('click', closeMenu);
+
+    document.querySelector('#search').addEventListener('input', event => {
+      const query = event.target.value.trim().toLowerCase();
+      let visible = 0;
+      groupsEl.querySelectorAll('details').forEach(details => {
+        let groupVisible = 0;
+        details.querySelectorAll('.essay-link').forEach(button => {
+          const match = !query || button.dataset.search.includes(query);
+          button.hidden = !match; if (match) groupVisible++;
+        });
+        details.hidden = groupVisible === 0;
+        if (query && groupVisible) details.open = true;
+        visible += groupVisible;
+      });
+      document.querySelector('#empty').style.display = visible ? 'none' : 'block';
+    });
+
+    reader.addEventListener('scroll', () => {
+      const max = reader.scrollHeight - reader.clientHeight;
+      document.querySelector('#progress').style.width = `${max > 0 ? (reader.scrollTop / max) * 100 : 0}%`;
+    }, { passive: true });
+
+    reader.addEventListener('touchstart', event => {
+      state.touchX = event.changedTouches[0].screenX;
+      state.touchY = event.changedTouches[0].screenY;
+    }, { passive: true });
+    reader.addEventListener('touchend', event => {
+      const dx = event.changedTouches[0].screenX - state.touchX;
+      const dy = event.changedTouches[0].screenY - state.touchY;
+      if (Math.abs(dx) > 72 && Math.abs(dx) > Math.abs(dy) * 1.35 && !window.getSelection().toString()) step(dx < 0 ? 1 : -1);
+    }, { passive: true });
+
+    document.addEventListener('keydown', event => {
+      if (event.target.matches('input, textarea')) return;
+      if (event.key === 'ArrowLeft') step(-1);
+      if (event.key === 'ArrowRight') step(1);
+      if (event.key === 'Escape') closeMenu();
+    });
+
+    document.querySelector('#theme-button').addEventListener('click', () => {
+      const next = document.documentElement.dataset.theme === 'night' ? 'light' : 'night';
+      document.documentElement.dataset.theme = next;
+      localStorage.setItem('reader-theme', next);
+    });
+
+    document.querySelector('#font-control').addEventListener('click', () => {
+      state.fontStep = (state.fontStep + 1) % 3;
+      const sizes = ['17px', '19px', '21px'];
+      document.documentElement.style.setProperty('--reader-size', sizes[state.fontStep]);
+      localStorage.setItem('reader-font', String(state.fontStep));
+    });
+
+    const storedTheme = localStorage.getItem('reader-theme');
+    if (storedTheme) document.documentElement.dataset.theme = storedTheme;
+    state.fontStep = Number(localStorage.getItem('reader-font') ?? 1);
+    document.documentElement.style.setProperty('--reader-size', ['17px', '19px', '21px'][state.fontStep] || '19px');
+    const initial = Math.max(0, essays.findIndex(essay => essay.slug === location.hash.slice(1)));
+    openEssay(initial, 'animate-next');
+  </script>
+</body>
+</html>
