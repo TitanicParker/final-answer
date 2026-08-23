@@ -1,177 +1,108 @@
-What the Patient Challenged, Why the NCT Analogy Mattered, and How the Protest Exposed a Clinically Stationary Problem
+# The Anatomy of the Protest
 
-Evidence-disciplined case analysis | August 2026
+## What the Protest was trying to preserve
 
-Controlling proposition. The Protest was not a disagreement with an uncertain conclusion reached after an exhaustive investigation. On the patient’s evidence, it was a contemporaneous objection that the principal problem which brought him into care had been recorded at the beginning of the admission, left clinically stationary while an extensive Parkinsonism work-up proceeded, and was then being returned to a Podiatry pathway that pre-dated the admission.
+The Protest matters because of what the patient says it was about.
 
-Purpose and evidential status
+It was not, on the later account, a rejection of Parkinsonism. The 2017 documentary record strongly indicates that the patient substantially accepted the Parkinsonian diagnosis, was engaged with the treatment plan, and understood why levodopa or dopamine-agonist therapy was being delayed.
 
-This document isolates the 10 July 2017 bedside Protest as a distinct evidential event. It asks what the Protest meant, what it challenged, why its content is consistent with the surviving documentary chronology, and what follows if the patient’s account is accepted.
+The remembered objection was narrower and more consequential:
 
-The Protest is the patient’s direct evidence. He states that it occurred, that four trainees were present, that one trainee fetched the treating neurologist, and that he used an NCT and “bald tyres” analogy to explain why discharge was unsafe or incomplete from his point of view. The event is not preserved in the available institutional record and has not yet been independently corroborated by a native note or witness statement. That affects weight and proof; it does not convert the patient’s positive evidence into a hypothetical allegation.
+> **after an extensive neurological admission, the feet remained the dominant disabling problem and the patient did not believe that returning them to Podiatry amounted to resolution.**
 
-The documentary question is therefore not whether silence proves that no Protest occurred. It is whether the patient’s account fits the objective information state immediately before discharge, whether the Protest was material, and whether the completed post-Protest account can safely prove its own completeness by omitting the event that challenges it.
+He later recalled expressing that objection through the NCT / bald-tyres analogy: the vehicle may have been comprehensively examined, but the part meeting the road remained unfit.
 
-The problem that brought the patient into care
+The analogy matters because it is about functional completeness, not diagnostic denial.
 
-The clinical pathway began through the feet. On 10 April 2017, the GP recorded bilateral foot pain and abnormal gait, difficulty working on his feet, mallet toes, onychogryphosis, calluses and pressure areas. Blood screening and a Podiatry referral were initiated (CLIN-000020–000027).
+## Why the feet were not merely another symptom
 
-The urgent neurological referral of 29 June preserved that origin. Its opening account stated that the patient had attended with bilateral foot problems, attributed his gait to corns and calluses, and had feet that were “not in a good state.” It then described difficulty initiating movement, increased tone, stiffness and toe-clawing in bed (CLIN-000851–000862). The referral did not present an established neurological disorder plus an incidental foot complaint. It placed gait, feet, tone and toe-clawing within one escalating presentation requiring neurological assessment.
+The feet had an unusually continuous role in the history.
 
-Neurology recorded the longstanding foot history: corns, calluses, fallen arches, treatment since 2009–2010 and the fact that the problems “remain a problem” (CLIN-000965–000969). The physical examination recorded a strikingly abnormal gait with a footdrop-like appearance “somewhat suggestive of a dystonic posture — NOT FOOT DROP,” together with pes planus and hammer toes (CLIN-001097–001120).
+They were part of the initial primary-care presentation. They were connected to difficulty working on his feet. The urgent neurological referral described an abnormal gait while noting that the feet were in poor condition. Neurology documented treatment of the feet dating to 2009-2010, structural abnormalities, pain, corns, calluses and fallen arches. The neurological examination then described a strikingly abnormal gait with a dystonic-looking lower-limb posture.
 
-The relationship was left “Not clear.” Separation and peripheral neuropathy were entertained, including a possible relationship with historic alcohol intake (CLIN-001142–001149). But the available record does not show a continuing foot-directed investigative sequence after the initial history and examination.
+That combination made a basic question available:
 
-What did and did not move during the admission
+> **What effect were painful and structurally abnormal feet having on the gait, and what effect was the neurological disorder having on the feet?**
 
-The Parkinsonism inquiry moved rapidly and substantially. The patient underwent neurological examination, video recording, brain and cervical imaging, extensive blood testing, ultrasound, multidisciplinary consideration, genetic discussion, treatment planning, Long Term Illness administration and arrangement of dopaminergic imaging.
+The surviving record does not visibly resolve that reciprocal relationship.
 
-The feet did not visibly move through a comparable sequence. The supplied material does not demonstrate:
+The patient's own historical distinction between internal leg tension and surface foot pain did not answer the gait question. Two sensations can be experienced as different while both still affect standing, walking, posture and loading.
 
-a serial foot examination;
+The Protest, if established, therefore had a specific clinical function: **to prevent the unresolved foot/gait relationship from being treated as though it had been adequately disposed of.**
 
-a focused sensory or peripheral-neuropathy assessment;
+## Why acceptance of Parkinsonism does not defeat the Protest
 
-a biomechanical correlation between structural abnormalities and the gait;
+A recurring error would be to treat the patient's positive 2017 statements about diagnosis and medication as inconsistent with his later recollection of protest.
 
-an analysis of whether calluses were causes or consequences of abnormal neurological loading;
+They are not necessarily inconsistent.
 
-assessment of the toe-clawing as fixed deformity, fluctuating dystonia or state-dependent movement;
+A person can believe:
 
-review of the prior years of Podiatry treatment;
+- "I have Parkinsonism";
+- "I understand why these clinicians are delaying levodopa";
+- "the medication I have been given is helping";
 
-an inpatient Podiatry consultation;
+and still believe:
 
-a movement-disorders opinion directed specifically to the feet;
+- "the feet that brought me here remain unexplained";
+- "Podiatry does not answer the neurological question";
+- "I should not leave hospital with that relationship unresolved."
 
-a diagnostic treatment trial using defined foot or gait outcomes;
+That distinction is central. The Protest should not be inflated into a 2017 theory the patient did not yet possess. Its evidential strength lies in its simplicity.
 
-or a named owner and deadline for resolving the relationship after discharge.
+## The evidential status
 
-This does not establish that no undocumented clinical thought or examination occurred. It establishes that no continuing foot-directed assessment has yet been demonstrated in the available record.
+The Protest is later patient recollection.
 
-The distinction is critical. Eight days in hospital does not itself prove eight days of investigation into the feet. “Not clear” may be the conclusion of a careful but unsuccessful inquiry, or it may preserve the uncertainty present at the beginning because the question was not actively pursued. The existing documentation presently demonstrates the initial observation and the eventual disposition; it does not demonstrate the reasoning bridge between them.
+By July 2025 the patient had given a detailed account of a bedside teaching interaction, described the presence of trainees, the request for senior review and the NCT / bald-tyres analogy, and sought records that might corroborate it.
 
-The pre-existing Podiatry pathway
+That establishes the existence and detail of the later recollection. It does not independently prove the 2017 event.
 
-The Podiatry record further changes the meaning of the proposed disposition. The underlying referral is dated 10 April 2017 and identifies the GP as the referrer (CLIN-002834–002836; CLIN-002990–003016). On 6 July, the GP telephoned Podiatry and recorded that the existing case would be prioritised “as Parkinson’s” (CLIN-000905–000913). Podiatry registered the case on 10 July and first treated the patient on 14 September.
+The surviving clinical record does not document the exchange in those terms. That silence does not prove the event did not occur. Later access responses also indicated that some potentially relevant classes of teaching, trainee or ward-round material were not held, making the historical question harder to test.
 
-The secure Podiatry route therefore originated before the neurological admission. It was not the demonstrated product of a Neurology investigation into the unresolved foot–neurology relationship.
+The correct evidential position is therefore:
 
-The extended discharge account subsequently asked the GP to refer the patient to outpatient Chiropody/Podiatry and stated that the hospital SHO had “tried” to do so (CLIN-001225–001229). That language does not securely establish a completed Neurology referral, its contents, its purpose or any defined question transmitted to Podiatry.
+> **positive later patient evidence; no presently identified contemporaneous corroborating institutional entry; no proper basis to convert silence into disproof; occurrence, hearers and authorial knowledge remain matters for evidence.**
 
-For a patient who had already received foot treatment since 2009–2010, a renewed Podiatry route was not self-evidently forward movement. The missing clinical question was what the new referral would investigate or accomplish that the previous treatment had not.
+## The Protest as attempted contemporaneous correction
 
-The NCT and bald-tyres analogy
+If substantially established, the Protest becomes more than evidence of dissatisfaction.
 
-The Protest used a mechanically exact analogy. The patient said, in substance, that the institution had brought him in, given him the full NCT, and was sending him out on bald tyres — the part of the vehicle that actually met the road.
+It is an attempted correction made **before the record became final and portable**.
 
-The “full NCT” referred to the extensive work-up: MRIs, ultrasound, phlebotomy, imaging and neurological investigation. The “bald tyres” referred to the feet: the point at which gait, balance, pain, work capacity and bodily safety met the ground.
+The patient was trying to preserve one proposition:
 
-The analogy did not reject the value of the neurological investigations. It exposed their incompleteness in relation to the reason the patient had sought help. A vehicle may have an extensively assessed engine and still remain functionally unsafe if the tyres have not been addressed. In the same way, establishing Parkinsonism did not answer whether the feet, toe-clawing, abnormal loading and dystonic-looking gait belonged to that syndrome or required some integrated alternative explanation.
+> **the relationship between the neurological condition and the disabling feet remained unresolved.**
 
-The Protest was therefore not anti-medical, irrational or diagnostic denial. It was a clinical-governance objection expressed in ordinary language:
+That is why the timing matters. A similar objection raised years later would be retrospective disagreement. An objection made before discharge, if proved, would form part of the state of the encounter that the final record was meant to represent.
 
-The institution had investigated the disease category but had not advanced the disabling problem through which the disease, or another condition, was affecting the patient’s life.
+## The inversion
 
-What the Protest challenged
+The central paradox is this:
 
-The Protest challenged at least six propositions before they became embedded in the completed record.
+> **The Protest was intended to prevent the feet from being displaced from the neurological question. If the Protest did not enter the durable account, the attempted correction itself failed to travel forward.**
 
-First, it challenged the proposition that diagnosis of Parkinsonism resolved the presenting complaint. The patient accepted that Parkinsonism had been identified while insisting that the feet remained unexplained.
+The institutional future could then receive Parkinson's disease, treatment rationale, Podiatry and patient understanding without receiving an equivalent record that the adequacy of the foot disposition had been contested.
 
-Second, it challenged the proposition that observation was investigation. Recording pes planus, hammer toes, corns and calluses did not establish their causal relationship to the gait or pain.
+That is the possible inversion point of the case.
 
-Third, it challenged the proposition that uncertainty justified closure. If the relationship remained “Not clear,” the uncertainty required an owner, a plan and a reconsideration mechanism.
+It does not prove purposeful suppression. It does not prove that every later decision was caused by the omission. It establishes why the omission would be material if the underlying event and authorial knowledge are proved.
 
-Fourth, it challenged Podiatry as sufficient forward movement. The patient had already undergone years of foot treatment. Returning him to the same domain without a new diagnostic commission did not answer why the longstanding problem persisted or how it related to the neurological presentation.
+## What has to be proved
 
-Fifth, it challenged the adequacy of discharge. The dominant functional problem remained unresolved at the point when the patient was being released from the setting best placed to observe and integrate it.
+The Protest theory becomes load-bearing only if the evidence can answer:
 
-Sixth, it challenged any later representation that the patient accepted the whole disposition merely because he understood the Parkinsonism diagnosis or the rationale for treatment restraint.
+1. Did the conversation occur substantially as remembered?
+2. When did it occur relative to discharge and final record completion?
+3. Who heard it?
+4. Did the relevant record-maker know of it?
+5. Was it material to the discharge decision and the foot/gait disposition?
+6. Would a competent final account ordinarily have preserved the disagreement or its substance?
 
-The decision forced by the Protest
+Only then does the next question arise: what effect did its absence have on the information state inherited by the future?
 
-Before the Protest, the foot route could still appear provisional. The relationship was “Not clear”; Podiatry was a practical pathway; the treatment strategy was cautious; and the clinical team was dealing with a complex young-onset presentation.
+The Protest should therefore be kept precise.
 
-The Protest forced a fork. The institution could:
+It was not the patient's attempt to solve the disease in 2017.
 
-pause discharge and re-examine the feet;
-
-seek defined senior or movement-disorders input;
-
-document why no further inpatient investigation was appropriate;
-
-establish an early integrated review with stated reopening criteria;
-
-preserve the disagreement in the problem list and discharge account;
-
-or proceed with discharge notwithstanding the objection.
-
-Discharge proceeded. The patient’s evidence is that the alternative was expressly raised and not taken. The significance of the Protest is therefore that it makes visible a choice which the later record otherwise allows to appear inevitable.
-
-The Counihan provenance problem
-
-The record invokes Professor Timothy Counihan in support of future treatment caution. It says that “the greatest of care” was advised with the senior consultant and Neurology colleagues, and later correspondence records: “Myself and Tim are keen to hold back on Levodopa.”
-
-The existing record does not establish that Counihan received the GP referral, viewed the gait or video, knew that the feet were the dominant presenting disability, knew that their relationship remained unresolved, or knew of the Protest.
-
-That creates two distinct routes.
-
-If Counihan did not know about the feet, his authority may support general caution in treating an exceptionally young person with Parkinsonism. It cannot, without more, authenticate the adequacy of the foot investigation, Podiatry as sufficient disposition, discharge after the Protest or the failure to use the feet as a potential diagnostic outcome.
-
-If Counihan did know, the institution must explain why his demonstrated knowledge of juvenile PRKN disease, dystonia and excellent levodopa responsiveness produced no visible integration of the dystonic-looking feet into the patient-specific synthesis.
-
-Either route makes the information supplied to the senior adviser indispensable. “Senior-backed” is not an answer unless the scope and informational basis of the advice are proved.
-
-Why the Protest is internally consistent with the documents
-
-The patient’s account possesses several features of internal fit:
-
-it identifies the same feet that opened the GP relationship;
-
-it corresponds to the absence of demonstrated investigative progression after the initial examination;
-
-it distinguishes the extensive Parkinsonism work-up from the stationary foot question;
-
-it explains why a Podiatry disposition would have appeared inadequate to someone already treated by Podiatry for years;
-
-it does not deny Parkinsonism, consistent with the patient’s capacity to understand one diagnosis while disputing the completeness of the plan;
-
-and it occurs immediately before discharge, when the unresolved issue acquired practical urgency.
-
-This fit is not independent corroboration of the spoken event. It is an important consistency test. The account does not require an invented concern unrelated to the contemporaneous record. It articulates the precise structural defect visible within it.
-
-Lawyer-to-lawyer formulation
-
-The plaintiff’s evidence is that the 10 July Protest was not a rejection of the Parkinsonism diagnosis or a demand for a predetermined treatment. It was a contemporaneous objection that the dominant presenting problem had not been investigated beyond the initial history and examination. The extensive admission had advanced the Parkinsonian diagnosis, imaging, genetics and treatment architecture, while the feet remained at the same unresolved point recorded at the outset. The renewed Podiatry route did not answer that objection because it originated with the GP before admission and returned the patient to a service he had already attended for years. The Protest was therefore material to the adequacy of discharge, the clinical status of the feet and the patient’s agreement with the plan. If accepted, it proves that the institution was expressly alerted before discharge that its apparent resolution of the admission did not resolve the problem for which the patient had entered care.
-
-Formulation for the Court
-
-Judge, the plaintiff does not ask the Court to infer from hindsight that the clinicians were obliged to know the final explanation for his feet in July 2017. His evidence is narrower. He says that the question was not followed after it was first recorded. While substantial investigations were undertaken into Parkinsonism, the surviving record shows no comparable sequence directed to the feet, the toe-clawing or the dystonic-looking gait. Before discharge, he used the NCT analogy to make that distinction plain: the vehicle had been extensively examined, but the tyres — the part meeting the road — remained untreated and unexplained. The Court will determine whether that exchange occurred. If it did, it was a material objection to the adequacy of discharge and not merely an expression of dissatisfaction. It identified, in real time, the same absence of investigative progression now visible in the documents.
-
-Evidence required to determine the Protest
-
-The following sources would materially strengthen or contradict the account:
-
-the complete ward and nursing notes for 3–11 July 2017;
-
-the names, allocation records and evidence of the four trainees;
-
-the treating neurologist’s evidence of being called back to the bedside;
-
-clinical video metadata and any commentary upon the feet or gait;
-
-the Complex Case Meeting agenda, attendance and decision record;
-
-native Podiatry referral-routing and communication records;
-
-discharge-draft creation and modification history;
-
-any contemporaneous patient or family communication about the exchange;
-
-and the complete material supplied to Counihan and Healy.
-
-Final proposition
-
-The Protest was the patient’s attempt to prevent extensive investigation of the diagnostic engine from being mistaken for investigation of the disabling point at which his body met the ground. It asserted that the feet had been recorded, but not followed; that Podiatry was repetition, not resolution; and that discharge would convert an untouched problem into an inherited assumption. If the Court accepts that evidence, the Protest marks the moment when the institution was expressly required to choose between reopening the feet and proceeding without doing so.
+It was his attempt, if his recollection is established, to stop the institution from closing the episode while the part of the condition through which he most persistently experienced disability remained unresolved.
